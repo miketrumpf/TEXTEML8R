@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :texts
   resources :contacts
 
+  get '/sessions/new' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
