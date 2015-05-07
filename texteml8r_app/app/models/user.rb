@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   validates :phone_number,
             presence: true,
-            numbericality: {only_integer: true}
+            numericality: {only_integer: true}
 
 
 

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150507144102) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20150507144102) do
 
   create_table "texts", force: :cascade do |t|
     t.string   "content"
-    t.integer  "from_number"
-    t.integer  "to_number"
+    t.string   "from_number"
+    t.string   "to_number"
     t.integer  "user_id"
     t.integer  "contact_id"
     t.datetime "created_at"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150507144102) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
