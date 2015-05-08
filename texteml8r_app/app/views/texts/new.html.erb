@@ -1,0 +1,17 @@
+<%= form_for @text do |f| %>
+  <%= f.label :content %><br>
+  <%= f.text_area :content, :cols => "80", :rows => "20" %><br>
+
+  <div>
+    <%=f.label :contact_id %>
+    <%= f.collection_select(:contact_id, Contact.all, :id, :name) %>
+  </div>
+
+  <br>
+
+
+
+  <%= f.submit %>
+
+
+<% end %>

@@ -1,0 +1,9 @@
+
+Contact: <%= @contact.name %> <br>
+<br>
+Phone Number <%= @contact.phone_number %> <br>
+<br>
+
+<a href="/users/<%=(current_user.id) %>" data-method ="get">Back</a>
+
+<p>  <%= link_to "Send a text!", new_text_path %> </p>

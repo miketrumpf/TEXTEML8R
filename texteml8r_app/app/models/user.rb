@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
             presence: true,
             numericality: {only_integer: true}
 
+  # def add_contact(contact)
+  #   self.contacts.push(contact) unless self.contact.include? contact
+  # end
 
 
 

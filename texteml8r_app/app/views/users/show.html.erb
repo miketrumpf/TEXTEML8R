@@ -1,0 +1,13 @@
+<h1>This is you!</h1>
+
+
+  <li><%= @user.username %> | Phone number:  <%= @user.phone_number %></li>
+
+  <% @user.contacts.each do |contact| %>
+   <a href= "/contacts/<%= contact.id %>" data-mthod = "get"><%=contact.name%></a> <br>
+    <%end %>
+ <!--  Create message -->
+
+<p>  <%= link_to "Add A Contact", new_contact_path %> </p>
+  
+<p> Send a group text! Coming soon....</p>
