@@ -27,15 +27,15 @@ class TextsController < ApplicationController
 
     @text.user_id = current_user.id
 
-  
+ 
     #grab user_id and contact_id and phone numbers if possible here and add it to @text then save
 
 
     @text.save
-
+    binding.pry
     if @text.save
       respond_to do |format|
-        format.html { @text}
+        format.html { redirect_to "/texts/#{@text.id}"}
         format.json {render json: @user}
       end
     else 
@@ -52,7 +52,7 @@ class TextsController < ApplicationController
     @text.destroy
 
     respond_to do |format|
-      format.html {redirect_to user_path(current_use.id)}
+      format.html {redirect_to user_path(current_user.id)}
       format.json {render json: @user}
     end
   end
