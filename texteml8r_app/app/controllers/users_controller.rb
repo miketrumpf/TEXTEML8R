@@ -40,6 +40,17 @@ class UsersController < ApplicationController
     end 
   end
 
+  # def add_contact
+  #   user = User.find(params[:id])
+  #   contact = Song.find(params[:contact_id])
+
+  #   user.add_contact(contact)
+
+  #   respond_to do |format|
+  #     format.html {redirect_to user_path(@user.id)}
+  #     format.html {rend json: @user}
+  #   end
+  # end
 
 def user_params
   params.require(:user).permit(:username, :password, :phone_number)

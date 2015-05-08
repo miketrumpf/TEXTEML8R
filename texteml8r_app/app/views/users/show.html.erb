@@ -3,5 +3,10 @@
 
   <li><%= @user.username %> | Phone number:  <%= @user.phone_number %></li>
 
-<!--   Add a contact
-  Create message -->
+  <% @user.contacts.each do |contact| %>
+   <a href= "/contacts/<%= contact.id %>" data-mthod = "get"><%=contact.name%></a> <br>
+    <%end %>
+ <!--  Create message -->
+
+<p>  <%= link_to "Add A Contact", new_contact_path %> </p>
+  

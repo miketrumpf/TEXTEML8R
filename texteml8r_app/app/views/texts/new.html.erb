@@ -1,0 +1,21 @@
+<%= form_for @text do |f| %>
+  <%= f.label :content %><br>
+  <%= f.text_field :content%><br>
+
+  <%= f.label :to_phone_number %><br>
+  <%= f.text_field :to_phone_number%><br>
+  
+  <%= f.label :from_phone_number %><br>
+  <%= f.text_field :from_phone_number %><br>
+
+  binding.pry
+
+
+  <br>
+
+
+
+  <%= f.submit %>
+
+
+<% end %>
