@@ -16,15 +16,26 @@ class TextsController < ApplicationController
 
 
   def create
-    @text = Text.new(text_params)
-    #grab user_id and contact_id if possible here and add it to @text then save
+    @text = Text.new({
+      content: params[:text][:content],
+      contact_id: params[:text][:contact_id].to_i
+      })
+    contact = Contact.find(params[:text][:contact_id])
+    @text.to_number = contact.phone_number.to_i
+
+    @text.from_number = current_user.phone_number.to_i
+
+    @text.user_id = current_user.id
+
+  
+    #grab user_id and contact_id and phone numbers if possible here and add it to @text then save
 
 
     @text.save
 
     if @text.save
       respond_to do |format|
-        format.html { redirect_to user_path(current_user.id)}
+        format.html { @text}
         format.json {render json: @user}
       end
     else 
