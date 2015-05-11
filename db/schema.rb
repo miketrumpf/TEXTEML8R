@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 20150507144102) do
 
   create_table "texts", force: :cascade do |t|
     t.string   "content"
-    t.string   "from_number"
-    t.string   "to_number"
+    t.string   "phone_number"
+    t.datetime "time"
     t.integer  "user_id"
     t.integer  "contact_id"
+    t.boolean  "sent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
