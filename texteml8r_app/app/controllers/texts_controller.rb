@@ -16,14 +16,28 @@ class TextsController < ApplicationController
 
 
   def create
+    binding.pry
     @text = Text.new({
       content: params[:text][:content],
       contact_id: params[:text][:contact_id].to_i
       })
-    contact = Contact.find(params[:text][:contact_id])
-    @text.to_number = contact.phone_number.to_i
 
-    @text.from_number = current_user.phone_number.to_i
+
+    time_string = []
+ 
+      time_string.push(params[:appointment]["time(1i)"])
+      time_string.push(params[:appointment]["time(2i)"])
+      time_string.push(params[:appointment]["time(3i)"])
+      time_string.push(params[:appointment]["time(4i)"])
+      time_string.push(params[:appointment]["time(5i)"])
+
+
+      time = Time.new(time_string[0], time_string[1], time_string[2], time_string[3], time_string[4])
+    @text.sent = false,
+    @text.time = time
+    contact = Contact.find(params[:text][:contact_id])
+    @text.phone_number = contact.phone_number.to_i
+
 
     @text.user_id = current_user.id
 
@@ -32,7 +46,7 @@ class TextsController < ApplicationController
 
 
     @text.save
-    binding.pry
+  
     if @text.save
       respond_to do |format|
         format.html { redirect_to "/texts/#{@text.id}"}

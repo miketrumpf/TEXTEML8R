@@ -9,9 +9,29 @@
 
   <br>
 
+  <div class="form-group">
+    <%= f.label :time, "Time and Date", :class => 'control-label col-lg-2' %>
+    <!-- Rails expects time_select when dealing with ActiveRecord forms -->
+    <div class="col-lg-2">
+      <%= time_select :appointment, :time, {:class => "form-control" } %>
+    </div>
+    <div class="col-lg-4">
+      <%= date_select :appointment, :time, {:class => "form-control" } %>
+    </div>
+
+  
+   
+  </div>
+
+
 
 
   <%= f.submit %>
+
+
+
+
+
 
 
 <% end %>
