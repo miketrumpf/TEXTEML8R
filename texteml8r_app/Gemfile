@@ -41,6 +41,12 @@ group :development, :test do
 
   gem "twilio-ruby"
 
+  # Use delayed job for running background jobs
+  gem 'delayed_job_active_record'
+
+  # Need daemons to start delayed_job
+  gem 'daemons'
+
   gem "pry-rails"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

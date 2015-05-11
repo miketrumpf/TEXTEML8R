@@ -1,6 +1,6 @@
 class TextsController < ApplicationController
 
-
+# before_filter :fix_params, :only => [:create, :update]
   def show
     @text = Text.find(params[:id])
     respond_to do |format|
@@ -16,14 +16,29 @@ class TextsController < ApplicationController
 
 
   def create
+    binding.pry
+    Time.zone = text_params[:time_zone]
     @text = Text.new({
       content: params[:text][:content],
       contact_id: params[:text][:contact_id].to_i
       })
-    contact = Contact.find(params[:text][:contact_id])
-    @text.to_number = contact.phone_number.to_i
 
-    @text.from_number = current_user.phone_number.to_i
+
+    time_string = []
+ 
+      time_string.push(params[:appointment]["time(1i)"])
+      time_string.push(params[:appointment]["time(2i)"])
+      time_string.push(params[:appointment]["time(3i)"])
+      time_string.push(params[:appointment]["time(4i)"])
+      time_string.push(params[:appointment]["time(5i)"])
+
+
+      time = Time.new(time_string[0], time_string[1], time_string[2], time_string[3], time_string[4])
+
+    @text.time = time
+    contact = Contact.find(params[:text][:contact_id])
+    @text.phone_number = contact.phone_number.to_i
+
 
     @text.user_id = current_user.id
 
@@ -32,7 +47,7 @@ class TextsController < ApplicationController
 
 
     @text.save
-    binding.pry
+  
     if @text.save
       respond_to do |format|
         format.html { redirect_to "/texts/#{@text.id}"}
@@ -58,8 +73,27 @@ class TextsController < ApplicationController
   end
 
   def text_params
-    params.require(:text).permit(:content, :from_number, :to_number, :user_id, :contact_id)
+    params.require(:text).permit(:content, :phone_number, :time,  :user_id, :contact_id)
   end
+
+private
+
+  # def fix_params
+  #   time = []
+  
+    
+  #     time.push(params[:appointment]["time(1i)"])
+  #     time.push(params[:appointment]["time(2i)"])
+  #     time.push(params[:appointment]["time(3i)"])
+  #     time.push(params[:appointment]["time(4i)"])
+  #     time.push(params[:appointment]["time(5i)"])
+      
+  
+    
+  # end
+
+
+
 
 
 end
