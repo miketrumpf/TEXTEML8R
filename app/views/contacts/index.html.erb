@@ -1,0 +1,17 @@
+
+<h1>Your Contacts</h1>
+
+<% @contacts.each do |contact| %>
+<div>
+Name: <%= contact.name  %> <br>
+Number: <%= contact.phone_number %> <br>
+          <%= link_to "Edit", 
+                      edit_contact_path(contact), :class => 'btn btn-default btn-xs' %>
+          <%= link_to "Delete",
+                      contact_path(contact),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+
+</div>
+<% end %>
