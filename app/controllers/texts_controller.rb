@@ -1,6 +1,12 @@
 class TextsController < ApplicationController
 
 
+  def index
+    @texts = Text.where({
+      user_id: current_user.id
+      })
+  end
+
   def show
     @text = Text.find(params[:id])
     respond_to do |format|
@@ -16,7 +22,6 @@ class TextsController < ApplicationController
 
 
   def create
-    binding.pry
     @text = Text.new({
       content: params[:text][:content],
       contact_id: params[:text][:contact_id].to_i

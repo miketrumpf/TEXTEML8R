@@ -1,5 +1,11 @@
 class ContactsController < ApplicationController
 
+  def index
+
+    @contacts = current_user.contacts
+    binding.pry
+  end
+
 
   def show
     @contact = Contact.find(params[:id])
@@ -24,7 +30,7 @@ class ContactsController < ApplicationController
 
     if @contact
       respond_to do |format|
-        format.html { redirect_to user_path(current_user.id) }
+        format.html { redirect_to "/users/#{current_user.id}" }
         format.json { render json: @contact}
       end
     else
@@ -46,7 +52,7 @@ class ContactsController < ApplicationController
     @contact.update(contact_params)
 
     respond_to do |format|
-      format.html {redirect_to user_path(@user.id)}
+      format.html {redirect_to "/users/#{current_user.id}"}
       format.json {render json: @user}
     end
   end

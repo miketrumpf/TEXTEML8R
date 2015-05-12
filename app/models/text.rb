@@ -12,10 +12,9 @@ class Text < ActiveRecord::Base
 
   def send_all_texts
     
-    binding.pry
-    if self.time > Time.now  && sent == false
-      binding.pry
+    if (Time.now - 1.minute) < self.time && self.time < Time.now  && sent == false
       self.sent = true
+      self.save
       self.twilio_text
     else
     end
