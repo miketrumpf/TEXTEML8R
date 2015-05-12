@@ -22,7 +22,6 @@ class TextsController < ApplicationController
 
 
   def create
-    binding.pry
     @text = Text.new({
       content: params[:text][:content],
       contact_id: params[:text][:contact_id].to_i
