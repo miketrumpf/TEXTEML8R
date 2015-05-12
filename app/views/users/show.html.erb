@@ -1,13 +1,18 @@
-<h1>This is you!</h1>
 
-
-  <li><%= @user.username %> | Phone number:  <%= @user.phone_number %></li>
+  <div id="contacts">
+    <h1>Contacts</h1>
 
   <% @user.contacts.each do |contact| %>
-   <a href= "/contacts/<%= contact.id %>" data-mthod = "get"><%=contact.name%></a> <br>
-    <%end %>
+  Contact Name:  <a href= "/contacts/<%= contact.id %>" data-method = "get"><%=contact.name%></a> <br>Phone Number: <%=contact.phone_number%> <br><br>
+  </div>
+
+   <%end %>
+   <% @texts.each do |text| %>
+   <%= text.content %>
+   <%end%>
+   
  <!--  Create message -->
 
 <p>  <%= link_to "Add A Contact", new_contact_path %> </p>
+<p>  <%= link_to "See Scheduled Messages", texts_path %> </p>
   
-<p> Send a group text! Coming soon....</p>

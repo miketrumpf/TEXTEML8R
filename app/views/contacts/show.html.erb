@@ -4,6 +4,12 @@ Contact: <%= @contact.name %> <br>
 Phone Number <%= @contact.phone_number %> <br>
 <br>
 
-<a href="/users/<%=(current_user.id) %>" data-method ="get">Back</a>
+          <%= link_to "Edit", 
+                      edit_contact_path(@contact), :class => 'btn btn-default btn-xs' %>
+          <%= link_to "Delete",
+                      contact_path(@contact),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
 
 <p>  <%= link_to "Send a text!", new_text_path %> </p>

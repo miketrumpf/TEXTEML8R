@@ -1,6 +1,12 @@
 class TextsController < ApplicationController
 
 
+  def index
+    @texts = Text.where({
+      user_id: current_user.id
+      })
+  end
+
   def show
     @text = Text.find(params[:id])
     respond_to do |format|

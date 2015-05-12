@@ -14,9 +14,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @texts = Text.where({user_id: current_user.id})
     respond_to do |format|
       format.html{}
       format.json {render json: @user}
+
     end
   end
 
