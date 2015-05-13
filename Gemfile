@@ -34,6 +34,8 @@ gem 'font-awesome-rails'
 
 gem 'rails_12factor', group: :production
 
+gem "twilio-ruby"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -47,10 +49,12 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  gem "twilio-ruby"
+
 
   gem "pry-rails"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+ruby '2.1.2'
 
