@@ -12,7 +12,7 @@ class Text < ActiveRecord::Base
 
   def send_all_texts
     
-    if (Time.now - 1.minute) < self.time && self.time < Time.now  && sent == false
+    if (Time.now - 5.minutes) <= self.time && self.time <= Time.now + 5.minutes  && sent == false
       self.sent = true
       self.save
       self.twilio_text
