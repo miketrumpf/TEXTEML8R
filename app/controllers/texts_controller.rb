@@ -71,7 +71,7 @@ class TextsController < ApplicationController
     @text.destroy
 
     respond_to do |format|
-      format.html {redirect_to user_path(current_user.id)}
+      format.html {redirect_to texts_path}
       format.json {render json: @user}
     end
   end

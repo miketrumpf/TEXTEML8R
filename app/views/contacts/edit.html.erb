@@ -1,12 +1,25 @@
-<%= form_for @contact do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name%><br>
+<header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Add a Contact to Send Suite messages to!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <%= f.label :phone_number %><br>
-  <%= f.text_field :phone_number%><br>
-  <br>
+    <%= form_for @contact do |f| %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name%><br>
 
-  <%= f.submit %>
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number%><br>
+      <br>
+
+      <%= f.submit %>
 
 
-<% end %>
+    <% end %>
+</header>
