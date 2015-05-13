@@ -33,7 +33,13 @@ class TextsController < ApplicationController
       time_string.push(params[:appointment]["time(1i)"])
       time_string.push(params[:appointment]["time(2i)"])
       time_string.push(params[:appointment]["time(3i)"])
-      time_string.push(params[:appointment]["time(4i)"])
+      binding.pry
+      edt = (params[:appointment]["time(4i)"])
+      utc_hour = hour.to_i + 4
+      utc_str = utc_hour.to_s
+
+      time_string.push(utc_str)
+
       time_string.push(params[:appointment]["time(5i)"])
 
 
