@@ -12,6 +12,9 @@ class Text < ActiveRecord::Base
 
   def send_all_texts
     
+    p Time.now
+    p self.time
+
     if (Time.now - 5.minutes) <= self.time && self.time <= Time.now + 5.minutes  && sent == false
       self.sent = true
       self.save
