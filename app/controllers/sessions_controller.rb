@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
       session[:current_user] = user.id
       respond_to do |format|
-        format.html {redirect_to users_path}
+        format.html {redirect_to "/users/#{current_user.id}"}
         format.json {render json: :show}
       end
     else

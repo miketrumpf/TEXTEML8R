@@ -28,13 +28,11 @@ class Text < ActiveRecord::Base
 
 
   def twilio_text
-    binding.pry
-    @twilio_number = +18622516960
-    account_sid = 'AC9d30d018ecc459c52d264d69ea6cbad5'
-    auth_token = '6dc966a5135aaee6b3d7d2d4c9cc6834'
-    @client = Twilio::REST::Client.new account_sid, auth_token
+    
+    @twilio_number = ENV['TWILIO_NUMBER']
+    @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
     time_str = self.time
-    content = "#{self.content} Please do not reply to this text"
+    content = "#{self.content} Sent from the Twilio App. Please do not reply"
     message = @client.account.messages.create(
       :from => @twilio_number,
       :to => self.phone_number,

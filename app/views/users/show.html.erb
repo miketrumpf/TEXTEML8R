@@ -1,19 +1,37 @@
+<header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name">Got Texts?</span>
+                        <hr class="star-light">
+                        <span class="skills">Now isn't a good time for that text, but later is!</span>
+                    </div>
+       <ul>
+        <li><%= link_to '<i class="fa fa-user-plus fa-5x"></i>'.html_safe, new_contact_path %></li> <h3>Add Contact</h3>
+        <li><%= link_to '<i class="fa fa-user fa-5x"></i>'.html_safe, contacts_path %></li><h3>View Contacts</h3>
+        <li><%= link_to '<i class="fa fa-paper-plane fa-5x"></i>'.html_safe, texts_path %></li> <h3>See Scheduled Texts</h3>
+        <li><%= link_to '<i class="fa fa-pencil-square-o fa-5x"></i>'.html_safe, new_text_path %></li> <h3>Schedule a Text</h3>
 
-  <div id="contacts">
-    <h1>Contacts</h1>
+      </ul>
+                </div>
+            </div>
+        </div>
+  
 
-  <% @user.contacts.each do |contact| %>
-  Contact Name:  <a href= "/contacts/<%= contact.id %>" data-method = "get"><%=contact.name%></a> <br>Phone Number: <%=contact.phone_number%> <br><br>
-  </div>
-
-   <%end %>
-   <% @texts.each do |text| %>
-   <%= text.content %>
+   
+  
    <br>
-   <%end%>
+</header>
+
+
+
+   
    
  <!--  Create message -->
+<!-- <i class="fa fa-user"></i>
+<i class="fa fa-check-circle-o fa-5x" style="color:green"></i>
+<i class="fa fa-user-plus"></i> -->
 
-<p>  <%= link_to "Add A Contact", new_contact_path %> </p>
-<p>  <%= link_to "See Scheduled Messages", texts_path %> </p>
+
   
