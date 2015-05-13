@@ -15,7 +15,7 @@ class Text < ActiveRecord::Base
     p Time.now
     p self.time
 
-    if (Time.now - 5.minutes) <= self.time && self.time <= Time.now + 5.minutes  && sent == false
+    if (Time.now - 10.minutes) <= self.time && self.time <= Time.now + 10.minutes  && sent == false
       self.sent = true
       self.save
       self.twilio_text
