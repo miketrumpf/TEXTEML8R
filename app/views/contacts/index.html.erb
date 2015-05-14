@@ -5,6 +5,7 @@
                     <div class="intro-text">
                         <span class="name">These are your friends?  Really?</span>
                </div>
+    <div class="texts"> 
                <h2> Contacts </h2>
             <% @contacts.each do |contact| %>
 
@@ -17,9 +18,9 @@
                         :method => :delete,
                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                         :class => 'btn btn-xs btn-danger' %> <br>
-
+                    <hr>
             <% end %>                
-
+    </div>
                     
                 </div>
             </div>
