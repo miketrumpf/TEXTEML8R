@@ -45,7 +45,9 @@ a.active {
 #text_contact_id {
     color: black;
 }
-
+.texts {
+    font-size: 20px
+}
 #appointment_time_1i {
     color: black!important;
 }
@@ -183,10 +185,11 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top .navbar-brand {
-        font-size: 2em;
+        font-size: 3em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+        color: green;
     }
 
     .navbar-fixed-top.navbar-shrink {

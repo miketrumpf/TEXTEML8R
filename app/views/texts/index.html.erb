@@ -6,24 +6,28 @@
                     <div class="intro-text">
                         <span class="name">Suite Texts!</span>
                     </div>
-<% @texts.each do |text| %>
-      <tr>
-        <td>Message <br><%= text.content %></td> <br>
-        <td>To: <%= text.phone_number %></td> <br>
-        <td>To be sent at <%= text.time %></td> <br>
-        <td>Sent Yet? <%= text.sent %></td><br>
-        <td>
-          <%= link_to "Edit", 
-                      edit_text_path(text), :class => 'btn btn-default btn-xs' %>
-          <%= link_to "Delete",
-                      text_path(text),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-        <br><br>
-      </tr>
-    <% end %>
+<div class="texts">                    
+      <% @texts.each do |text| %>
+            <tr>
+              
+              <td>Message <br><%= text.content %></td> <br>
+              <td>To: <%= text.phone_number %></td> <br>
+              <td>To be sent at <%= text.time %></td> <br>
+              <td>Sent Yet? <%= text.sent %></td><br>
+              <td>
+                <%= link_to "Edit", 
+                            edit_text_path(text), :class => 'btn btn-default btn-xs' %>
+                <%= link_to "Delete",
+                            text_path(text),
+                            :method => :delete,
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :class => 'btn btn-xs btn-danger' %>
+              </td>
+              <br><br>
+            </tr>
+            <hr>
+          <% end %>
+</div>
                 </div>
             </div>
         </div>

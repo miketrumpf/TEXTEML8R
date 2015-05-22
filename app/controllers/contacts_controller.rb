@@ -1,12 +1,13 @@
 class ContactsController < ApplicationController
 
+  #show current users contacts
   def index
 
     @contacts = current_user.contacts
     
   end
 
-
+  #show individual contact
   def show
     @contact = Contact.find(params[:id])
     respond_to do |format|
@@ -15,16 +16,17 @@ class ContactsController < ApplicationController
     end
   end
 
+  #go to new contact form
   def new
     @contact = Contact.new
   end
 
-  # not redirecting to the right place. how is this going to connect with join table method?
+  # create new contact 
   def create
     @contact = Contact.new(contact_params)
     @contact.save
 
-
+    #linking current user and its contact on join table
      current_user.contacts << @contact
 
     if @contact
@@ -40,11 +42,12 @@ class ContactsController < ApplicationController
     end
   end
 
+  #edit contact form
   def edit
     @contact = Contact.find(params[:id])
 
   end
-
+  #update edited contact
   def update
     @contact = Contact.find(params[:id])
 
@@ -56,6 +59,7 @@ class ContactsController < ApplicationController
     end
   end
 
+  #destroy contact
   def destroy
     @contact = Contact.find(params[:id])
 
@@ -67,6 +71,7 @@ class ContactsController < ApplicationController
     end
   end
 
+  #whitelist
   def contact_params
     params.require(:contact).permit(:name, :phone_number)
   end
