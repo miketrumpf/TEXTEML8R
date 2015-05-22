@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
 
-  #need to change this so index is for this particular user
+  #not used
   def index
     @users = User.all
 
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
+  #current user home page
   def show
     @user = User.find(params[:id])
     @texts = Text.where({user_id: current_user.id})
@@ -22,11 +23,13 @@ class UsersController < ApplicationController
     end
   end
 
+
   # new user form view
   def new
     @user = User.new
   end
-  # runs on submit
+
+  # create user
   def create
     @user = User.new(user_params)
     if @user.save
@@ -54,9 +57,10 @@ class UsersController < ApplicationController
   #   end
   # end
 
-def user_params
-  params.require(:user).permit(:username, :password, :phone_number)
-end
+  # whitelist
+  def user_params
+    params.require(:user).permit(:username, :password, :phone_number)
+  end
 
 
 end

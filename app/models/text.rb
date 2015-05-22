@@ -10,11 +10,10 @@ class Text < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :contact_id
 
+  #send scheduled texts out method
   def send_all_texts
-    
-    p Time.now
-    p self.time
 
+    #heroku scheduler runs rake task to check DB every 10 minutes, not every minute like whenever gem.  Logic has to account for that range of time.
     if (Time.now - 10.minutes) <= self.time && self.time <= Time.now + 10.minutes  && sent == false
       self.sent = true
       self.save
@@ -22,14 +21,10 @@ class Text < ActiveRecord::Base
     else
     end
 
-
-    # You will write code to check all the texts in your database, and identify the ones
-    # that need to be sent out by comparing against Time.now
-    # Probably also intelligently makring those as "sent", so you don't send them again later
   end
 
 
-
+  #texts within the + - 10 minute range hit this method to be sent out using twilio api
   def twilio_text
     
     @twilio_number = ENV['TWILIO_NUMBER']

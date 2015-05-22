@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   end
 
+  #log in
   def create 
     username = params[:username]
     password = params[:password]
@@ -25,6 +26,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  #log out
   def destroy
     session[:current_user] = nil
     respond_to do |format|
