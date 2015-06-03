@@ -47,12 +47,12 @@
                     </li>
                     <li class="page-scroll">
                     
-                    <%= link_to '<i class="fa fa-home fa-4x" style="color:green"></i>'.html_safe, "/users/#{current_user.id}" %> 
+                    <%= link_to "Home", "/"%>
                     
                     </li>
                     <li class="page-scroll">
                       
-                <%= link_to '<i class="fa fa-sign-out fa-4x" style="color:green"></i>'.html_safe, sessions_path, method: :delete %>
+                <%= link_to "Log Out", sessions_path, method: :delete %>
 
                      
                     </li>
